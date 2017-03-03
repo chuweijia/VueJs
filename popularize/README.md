@@ -28,46 +28,46 @@
 
 2.全局路由钩子  routers.js  
 
-  router.map({ 
-  
-  '/': {
-    name: 'index',
-    title: '爱卡汽车-推广活动',
-     `component: Ask,`
-     history : true
-  },
+    router.map({ 
 
-  'sub/:pbid/:pserid/:source_id/:type/:name': {
-    name: 'sub',
-    title:'爱卡汽车-询问活动',
-    `component: Sub`
-  }
+      '/': {
+        name: 'index',
+        title: '爱卡汽车-推广活动',
+         `component: Ask,`
+         history : true
+      },
 
-  })  
+      'sub/:pbid/:pserid/:source_id/:type/:name': {
+        name: 'sub',
+        title:'爱卡汽车-询问活动',
+        `component: Sub`
+      }
+
+    })  
   
         
   
   
 2.1 views/ask.vue  
 
-  import Vue from 'Vue'
-  `import VueResource from 'vue-resource'`
-  import $ from 'jquery'
-  import IScroll from '../../dist/lib/js/iscroll'
-  import Class_xgeo from '../../dist/lib/js/xgeo'
-  `import Vuex from 'vuex'`  
-  
-  `import HeaderComponent from '../components/header.vue'`
-  `import OptionsComponent from '../components/options.vue'`
-  `import SelectorComponent from '../components/selector.vue'`
-  `import ListComponent from '../components/list.vue'`
-  `import SliderComponent from '../components/slider.vue'`
-  import AttachFastClick from '../../dist/lib/js/fastclick.min'
-  `import store from '../vuex/store'`
-  import LevelData from '../level.json'
-  import PriceData from '../price.json'
-  import CityData from '../city.json'
-  `import {updateListData, addBrandData, updateMoreOptions, updateCityId} from '../vuex/actions'`    
+    import Vue from 'Vue'
+    `import VueResource from 'vue-resource'`
+    import $ from 'jquery'
+    import IScroll from '../../dist/lib/js/iscroll'
+    import Class_xgeo from '../../dist/lib/js/xgeo'
+    `import Vuex from 'vuex'`  
+
+    `import HeaderComponent from '../components/header.vue'`
+    `import OptionsComponent from '../components/options.vue'`
+    `import SelectorComponent from '../components/selector.vue'`
+    `import ListComponent from '../components/list.vue'`
+    `import SliderComponent from '../components/slider.vue'`
+    import AttachFastClick from '../../dist/lib/js/fastclick.min'
+    `import store from '../vuex/store'`
+    import LevelData from '../level.json'
+    import PriceData from '../price.json'
+    import CityData from '../city.json'
+    `import {updateListData, addBrandData, updateMoreOptions, updateCityId} from '../vuex/actions'`    
   
 2.2 views/sub.vue  
   import Vue from 'vue'
