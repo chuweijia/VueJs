@@ -49,7 +49,7 @@ name: 'sub',
 
 title:'爱卡汽车-询问活动',
 
-`component: Sub **哈哈哈**  \*哈哈哈哈啊哈\* `
+`component: Sub `
 
 }
 
@@ -62,15 +62,27 @@ title:'爱卡汽车-询问活动',
   
 2.1 views/ask.vue  
 
-  `import VueResource from 'vue-resource'`
-  `import Vuex from 'vuex'`  
+```markdown
+
+  import Vue from 'Vue'
+  import VueResource from 'vue-resource'
+  import $ from 'jquery'
+  import IScroll from '../../dist/lib/js/iscroll'
+  import Class_xgeo from '../../dist/lib/js/xgeo'
+  `import Vuex from 'vuex'`
   `import HeaderComponent from '../components/header.vue'`
   `import OptionsComponent from '../components/options.vue'`
   `import SelectorComponent from '../components/selector.vue'`
   `import ListComponent from '../components/list.vue'`
   `import SliderComponent from '../components/slider.vue'`
+  import AttachFastClick from '../../dist/lib/js/fastclick.min'
   `import store from '../vuex/store'`
-  `import {updateListData, addBrandData, updateMoreOptions, updateCityId} from '../vuex/actions'`    
+  import LevelData from '../level.json'
+  import PriceData from '../price.json'
+  import CityData from '../city.json' 
+  
+```
+  
   
 2.2 views/sub.vue  
   import Vue from 'vue'
