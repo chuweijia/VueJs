@@ -30,27 +30,27 @@
 
 router.map({ 
 
-  '/': {
+'/': {
 
-    name: 'index',
+name: 'index',
 
-    title: '爱卡汽车-推广活动',
+title: '爱卡汽车-推广活动',
 
-     `component: Ask,`
+ `component: Ask,`
 
-     history : true
+ history : true
 
-  },
+},
 
-  'sub/:pbid/:pserid/:source_id/:type/:name': {
+'sub/:pbid/:pserid/:source_id/:type/:name': {
 
-    name: 'sub',
+name: 'sub',
 
-    title:'爱卡汽车-询问活动',
+title:'爱卡汽车-询问活动',
 
-    `component: Sub`
+`component: Sub`
 
-  }
+}
 
 })  
   
