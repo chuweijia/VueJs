@@ -28,7 +28,7 @@
 
 2.全局路由钩子  routers.js  
 
-```js
+````markdown
 router.map({ 
 
 '/': {
