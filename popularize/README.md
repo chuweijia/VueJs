@@ -29,31 +29,31 @@
 2.全局路由钩子  routers.js  
 
 ````markdown
-router.map({ 
+  router.map({ 
 
-'/': {
+    '/': {
 
-name: 'index',
+      name: 'index',
 
-title: '爱卡汽车-推广活动',
+      title: '爱卡汽车-推广活动',
 
- `component: Ask,`
+       `component: Ask,`
 
- history : true
+       history : true
 
-},
+    },
 
-'sub/:pbid/:pserid/:source_id/:type/:name': {
+    'sub/:pbid/:pserid/:source_id/:type/:name': {
 
-name: 'sub',
+      name: 'sub',
 
-title:'爱卡汽车-询问活动',
+      title:'爱卡汽车-询问活动',
 
-`component: Sub `
+      `component: Sub `
 
-}
+    }
 
-})  
+  })  
 ```  
 
   
@@ -80,11 +80,69 @@ title:'爱卡汽车-询问活动',
   import LevelData from '../level.json'
   import PriceData from '../price.json'
   import CityData from '../city.json' 
-  
+  `import {updateListData, addBrandData, updateMoreOptions, updateCityId} from '../vuex/actions'`
+
 ```
-  
-  
+2.1.1 dom操作  
+
+      ```markdown
+      `<options-component></options-component>`
+      root
+      .('click','#listGroup')
+      .('click','#listCity')
+      .('click','#listBrand')   
+      .('click','#wrapperLevel, #wrapperPrice')
+      
+      .('click','#chooseLevel')
+      .('click','#choosePrice')
+      $('#tags').on('click','li .ico')  
+      
+      `<div class="gotop btn-bg" id="goTop" style="display: none;"></div> 置顶按钮`
+      root
+      .('click','#goTop')
+      ```   
+      
+2.1.2 vue-methods操作
+      2.1.2.1 initLevel() / initPrice() 
+              调取本地level.json / price.json
+      2.1.2.2 initCity()  
+              调取本地city.json (省+市)
+              定位  
+              渲染省份
+              渲染省份nav
+              渲染城市nav
+      2.1.2.3 initBrand()  
+              ajax请求  
+              
+              `addBrandData(store, brands)`  
+      2.1.2.4 initList(pbid, price, type, cityid, page)
+              ajax请求`/nxcar/index.php/extend/carlist/carList/` 参数 pbid, price, type, cityid, page  
+              
+              `updateListData(store, $.parseJSON(response.data));`  
+              `updateListData(store, {});`
+      2.1.2.5 initScroll()
+              ajax请求`/nxcar/index.php/extend/carlist/carList/` 参数 condition.pbid....    
+              
+              `updateListData(store, _self.listData);`
+      2.1.2.6 init()  
+      
+              `updateMoreOptions(store, more);`
+      2.1.2.7 hideDrawer()
+      2.1.2.8 checkMoreOptions () || deleteIcoOptions()
+      
+              `updateMoreOptions(store, more);`   
+      2.1.2.9 checkTime(nowTime, localTime, space)  
+      2.1.2.10 loadAgain()  
+                this.initList(_self.condition.pbid, _self.condition.price, _self.condition.type, _self.condition.cityid, _self.condition.page);    
+                
+                
+   
+      
+              
+              
+      
 2.2 views/sub.vue  
+```markdown
   import Vue from 'vue'
   import $ from 'jquery'
   `import Vuex from 'vuex'`
@@ -98,6 +156,8 @@ title:'爱卡汽车-询问活动',
   `import {getCityId, getDealerData, getPserData} from '../vuex/getters'`
   `import {updateDealerData, updatePserData, updateRecommendData} from '../vuex/actions'`
   `import VueCookie from 'vue-cookie'`  
+``` 
+
   
 2.3 components/header.vue  子集-头部
     空数据？
@@ -112,13 +172,33 @@ title:'爱卡汽车-询问活动',
     2.5.3 checkMoreOptions()??    
     
     
-2.6 components/selector.vue 子集-  
-
+2.6 components/selector.vue 子集-选项结果集
+ ```markdown
   import Vue from 'vue'
   import $ from 'jquery'
   `import store from '../vuex/store'`
   `import {getMoreOptions} from '../vuex/getters'`
   `import { updateMoreOptions } from '../vuex/actions'`  
+  ```
   2.6.1 changeMoreOptions() 自选选项增多时收起更多选项
 
-2.3 components/header.vue
+2.7 components/list.vue 伴随态-筛选的结果
+ ```markdown
+  import Vue from 'vue'
+  `import VueLazyload from 'vue-lazyload'`
+  import $ from 'jquery'
+  import IScroll from '../../dist/lib/js/iscroll'
+  `import {getListData,getCityId} from '../vuex/getters'`
+ ```  
+2.8 components/subSlider.vue
+```
+  import Vue from 'vue'
+  import $ from 'jquery'
+```
+  2.8.1 ##drawerPro #drawerCity || #drawerType `车型弹层`
+  2.8.2 hideDrawer() hideCity()   
+  
+  
+3.vuex
+   
+ 
