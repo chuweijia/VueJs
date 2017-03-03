@@ -5,7 +5,8 @@
   <router-view></router-view>
 </div>
 
-```
+```  
+
 1.1 驱动路由  main.js  
   
   Vue.use(VueRouter)
@@ -21,7 +22,9 @@
   routerMap(router)  
     
     
-`router.start(app,"#app"); ` 但是这个app 是个`Vue component constructor` 构造函数？并没有找到根源  
+`router.start(app,"#app"); ` 但是这个app 是个`Vue component constructor` 构造函数？并没有找到根源    
+
+
 
 2.全局路由钩子  routers.js
 router.map({
@@ -83,9 +86,11 @@ router.map({
 2.5 components/slider.vue 子集-选项抽屉
     2.5.1 #drawerPro #drawerCity || #drawerBrand || #drawerLevel || #drawerPrice
     2.5.2 hideDrawer() hideCity()
-    2.5.3 checkMoreOptions()??  
+    2.5.3 checkMoreOptions()??    
     
-2.6 components/selector.vue 子集-
+    
+2.6 components/selector.vue 子集-  
+
   import Vue from 'vue'
   import $ from 'jquery'
   `import store from '../vuex/store'`
