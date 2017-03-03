@@ -9,7 +9,7 @@
 
 1.1 驱动路由  main.js  
   
-  Vue.use(VueRouter)
+  Vue.use(VueRouter)  
   Vue.use(VueResource)
 
   let router = new VueRouter({
@@ -26,22 +26,26 @@
 
 
 
-2.全局路由钩子  routers.js
-router.map({
-    '/': {
-      name: 'index',
-      title: '爱卡汽车-推广活动',
-      `component: Ask,`
-      history : true
-    },
-    'sub/:pbid/:pserid/:source_id/:type/:name': {
-      name: 'sub',
-      title:'爱卡汽车-询问活动',
-      `component: Sub`
-    }
-  })
-}    
+2.全局路由钩子  routers.js  
+
+  router.map({
+      '/': {
+        name: 'index',
+        title: '爱卡汽车-推广活动',
+        `component: Ask,`
+        history : true
+      },
+      'sub/:pbid/:pserid/:source_id/:type/:name': {
+        name: 'sub',
+        title:'爱卡汽车-询问活动',
+        `component: Sub`
+      }
+    })
+  }      
+  
+  
 2.1 views/ask.vue  
+
   import Vue from 'Vue'
   `import VueResource from 'vue-resource'`
   import $ from 'jquery'
