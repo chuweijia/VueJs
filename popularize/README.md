@@ -88,13 +88,13 @@
       ```markdown
       `<options-component></options-component>`
       root
-      .('click','#listGroup')
-      .('click','#listCity')
-      .('click','#listBrand')   
-      .('click','#wrapperLevel, #wrapperPrice')
+      .on('click','#listGroup')
+      .on('click','#listCity')
+      .on('click','#listBrand')   
+      .on('click','#wrapperLevel, #wrapperPrice')
       
-      .('click','#chooseLevel')
-      .('click','#choosePrice')
+      .on('click','#chooseLevel')
+      .on('click','#choosePrice')
       $('#tags').on('click','li .ico')  
       
       `<div class="gotop btn-bg" id="goTop" style="display: none;"></div> 置顶按钮`
@@ -151,14 +151,45 @@
   `import store from '../vuex/store'`
   import IScroll from '../../dist/lib/js/iscroll'
   import AttachFastClick from '../../dist/lib/js/fastclick.min'
-  `import SubSliderComponent from '../components/subSlider.vue'`
+  `import SubSliderComponent from '../components/subSlider.vue'`   
   import CityData from '../city.json'
   `import {getCityId, getDealerData, getPserData} from '../vuex/getters'`
   `import {updateDealerData, updatePserData, updateRecommendData} from '../vuex/actions'`
   `import VueCookie from 'vue-cookie'`  
 ``` 
 
-  
+2.2.1 dom 操作  
+
+     ```markdown 
+        来源于 **SubSliderComponent**
+        root.
+        on('click','#listGroup')    省份
+        on('click','#listCitySub')  城市  
+        on('click','#listType li .info') 车型 
+        on('click','#dealerList') 经销商列表  
+        
+     ```
+2.2.2 vue-methods 操作 
+      2.2.2.1 resetUser() resetPhone() keyupName() keyupPhone()  
+      2.2.2.2 setLocalStorage() getLocalStorage()  本地缓存  
+      2.2.2.3 onSubmit() 提交  
+      2.2.2.4 showPro() showType()  
+      2.2.2.5 hideDrawer() 初始隐藏抽屉  
+      2.2.2.6 fastAsk()  第三页  一键询价   
+      2.2.2.7 initRecommendList()  第三页 初始化推荐经销商 
+      2.2.2.8 recommendLoadAgain()  第三页 加载失败时重载经销商列表   
+      2.2.2.9 initDealerList()  初始化推荐经销商   
+      2.2.2.10 dealersLoadAgain()  加载失败时重载经销商列表   
+      2.2.2.11 initPserList()  initCity() 初始化城市 初始化车型列表    
+2.2.3 vue-ready 操作  
+      _self.initDealerList()  
+      _self.initPserList() 
+      _self.initCity()
+      _self.getLocalStorage()  
+      
+      dom操作  
+      
+      
 2.3 components/header.vue  子集-头部
     空数据？
 2.4 components/options.vue 子集-选项横条
