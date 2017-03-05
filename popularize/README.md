@@ -86,6 +86,7 @@
 2.1.1 dom操作  
 
       ```markdown
+      
       `<options-component></options-component>`
       root
       .on('click','#listGroup')
@@ -100,6 +101,7 @@
       `<div class="gotop btn-bg" id="goTop" style="display: none;"></div> 置顶按钮`
       root
       .('click','#goTop')
+      
       ```   
       
 2.1.2 vue-methods操作
